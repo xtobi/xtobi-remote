@@ -1,1 +1,43 @@
+body{
+    margin:0;
+    padding:20px;
+    background:#111;
+    color:white;
+    font-family:Arial;
+}
 
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+}
+
+.status{
+    background:#222;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+#buttons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+}
+
+.btn{
+    background:#2b2b2b;
+    border:none;
+    color:white;
+    padding:18px;
+    font-size:18px;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#444;
+}
