@@ -1,1 +1,22 @@
-
+[
+    {
+        "title": "Home",
+        "icon": "🏠",
+        "command": "home"
+    },
+    {
+        "title": "Back",
+        "icon": "◀️",
+        "command": "back"
+    },
+    {
+        "title": "Recent",
+        "icon": "📋",
+        "command": "recent"
+    },
+    {
+        "title": "Flash",
+        "icon": "🔦",
+        "command": "flash"
+    }
+]
