@@ -1,3 +1,4 @@
+const WEBHOOK = localStorage.getItem("webhook") || "";
 const buttons = [
 
 {
@@ -34,8 +35,33 @@ b.innerHTML=btn.name;
 
 b.onclick=()=>{
 
-alert(btn.command);
+if (WEBHOOK == "") {
 
+    let url = prompt("أدخل رابط Webhook");
+
+    if (!url) return;
+
+    localStorage.setItem("webhook", url);
+
+    location.reload();
+
+    return;
+
+}
+
+fetch(WEBHOOK + "?cmd=" + btn.command)
+
+.then(() => {
+
+    alert("✔ Command Sent");
+
+})
+
+.catch(() => {
+
+    alert("❌ Failed");
+
+});
 };
 
 area.appendChild(b);
