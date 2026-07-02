@@ -1,69 +1,55 @@
 const WEBHOOK = localStorage.getItem("webhook") || "";
-const buttons = [
 
-{
-name:"🏠 Home",
-command:"home"
-},
+async function loadButtons() {
 
-{
-name:"◀ Back",
-command:"back"
-},
+    const response = await fetch("commands.json");
 
-{
-name:"📋 Recent",
-command:"recent"
-},
+    const buttons = await response.json();
 
-{
-name:"🔦 Flash",
-command:"flash"
-}
+    const area = document.getElementById("buttons");
 
-];
+    buttons.forEach(btn => {
 
-let area = document.getElementById("buttons");
+        let b = document.createElement("button");
 
-buttons.forEach(btn=>{
+        b.className = "btn";
 
-let b=document.createElement("button");
+        b.innerHTML = btn.name;
 
-b.className="btn";
+        b.onclick = () => sendCommand(btn.command);
 
-b.innerHTML=btn.name;
+        area.appendChild(b);
 
-b.onclick=()=>{
-
-if (WEBHOOK == "") {
-
-    let url = prompt("أدخل رابط Webhook");
-
-    if (!url) return;
-
-    localStorage.setItem("webhook", url);
-
-    location.reload();
-
-    return;
+    });
 
 }
 
-fetch(WEBHOOK + "?cmd=" + btn.command)
+function sendCommand(command){
 
-.then(() => {
+    let webhook = localStorage.getItem("webhook");
 
-    alert("✔ Command Sent");
+    if(!webhook){
 
-})
+        webhook = prompt("Webhook URL");
 
-.catch(() => {
+        if(!webhook) return;
 
-    alert("❌ Failed");
+        localStorage.setItem("webhook", webhook);
 
-});
-};
+    }
 
-area.appendChild(b);
+    fetch(webhook + "?cmd=" + encodeURIComponent(command))
+    .then(()=>{
 
-});
+        console.log("Sent:",command);
+
+    })
+    .catch(()=>{
+
+        console.log("Failed");
+
+    });
+
+}
+
+loadButtons();
