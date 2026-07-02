@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Settings</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>⚙ Settings</h1>
+
+<input
+id="webhook"
+placeholder="Webhook URL"
+style="width:100%;padding:15px;font-size:18px;">
+
+<br><br>
+
+<button class="btn" onclick="save()">
+
+Save
+
+</button>
+
+</div>
+
+<script>
+
+document.getElementById("webhook").value=
+
+localStorage.getItem("webhook")||"";
+
+function save(){
+
+localStorage.setItem(
+
+"webhook",
+
+document.getElementById("webhook").value
+
+);
+
+alert("Saved");
+
+}
+
+</script>
+
+</body>
+
+</html>
