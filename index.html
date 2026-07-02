@@ -2,35 +2,104 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XTobi Remote</title>
 
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XTobi Control</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div class="container">
+<header>
 
-    <a href="settings.html">
-        <button class="btn">⚙ Settings</button>
-    </a>
+    <div class="logo">
 
-    <h1>📱 XTobi Remote</h1>
-
-    <div class="status">
-        <h3>Infinix Smart 8</h3>
-
-        <p>🟢 Online</p>
-
-        <p>🔋 Battery : --%</p>
-
-        <p>📶 WiFi : --</p>
-
-        <p>📡 Mobile Data : --</p>
+        📱 XTobi Control
 
     </div>
+
+    <a href="settings.html" class="settings">
+
+        ⚙
+
+    </a>
+
+</header>
+
+<div class="container">
+
+    <section class="deviceCard">
+
+        <div>
+
+            <h2>Infinix Smart 8</h2>
+
+            <p class="online">
+
+                🟢 Connected
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="statusGrid">
+
+        <div class="card">
+
+            <span>🔋</span>
+
+            <h3>Battery</h3>
+
+            <p>--%</p>
+
+        </div>
+
+        <div class="card">
+
+            <span>📶</span>
+
+            <h3>WiFi</h3>
+
+            <p>Unknown</p>
+
+        </div>
+
+        <div class="card">
+
+            <span>📡</span>
+
+            <h3>Mobile</h3>
+
+            <p>Unknown</p>
+
+        </div>
+
+        <div class="card">
+
+            <span>📍</span>
+
+            <h3>GPS</h3>
+
+            <p>Unknown</p>
+
+        </div>
+
+    </section>
+
+    <h2 class="sectionTitle">
+
+        Remote Controls
+
+    </h2>
 
     <div id="buttons"></div>
 
@@ -39,4 +108,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
