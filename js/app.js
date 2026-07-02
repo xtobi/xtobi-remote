@@ -112,13 +112,13 @@ async function send(command) {
             encodeURIComponent(command)
         );
 
-        toast("✓ " + command);
+        document.querySelector(".status").innerHTML="🟢 Sent"; toast("✓ "+command);
 
     }
 
     catch {
 
-        toast("Connection Error");
+        document.querySelector(".status").innerHTML="🔴 Error"; toast("Connection Error");
 
     }
 
