@@ -270,5 +270,13 @@ font-size:16px;
 }
 
 }
+  .status{
+background:#1f1f1f;
+padding:10px 18px;
+border-radius:12px;
+font-weight:600;
+color:#4CAF50;
+white-space:nowrap;
+}
 
 }
