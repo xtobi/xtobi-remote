@@ -1,35 +1,29 @@
 const KEY = "xtobi_webhook";
 
-window.onload = function () {
-    const input = document.getElementById("webhook");
-    input.value = localStorage.getItem(KEY) || "";
+window.onload = () => {
+
+document.getElementById("webhook").value =
+
+localStorage.getItem(KEY) || "";
+
 };
 
-function saveWebhook() {
+function saveWebhook(){
 
-    let url = document.getElementById("webhook").value.trim();
+let value=document.getElementById("webhook").value.trim();
 
-    if (url === "") {
-        alert("Please enter your MacroDroid Webhook");
-        return;
-    }
+value=value.replace(/\/$/,"");
 
-    // Remove trailing slash if it exists
-    url = url.replace(/\/$/, "");
+localStorage.setItem(KEY,value);
 
-    localStorage.setItem(KEY, url);
+location.href="index.html";
 
-    alert("Webhook saved!");
-
-    window.location.href = "index.html";
 }
 
-function clearWebhook() {
+function clearWebhook(){
 
-    localStorage.removeItem(KEY);
+localStorage.removeItem(KEY);
 
-    document.getElementById("webhook").value = "";
-
-    alert("Webhook deleted.");
+document.getElementById("webhook").value="";
 
 }
