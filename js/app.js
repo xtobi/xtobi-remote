@@ -123,7 +123,7 @@ async function send(command) {
 
     }
 
-    document.querySelector(".status").innerHTML = "🟡 Sending...";
+    document.getElementById("status").innerHTML = "🟡 Sending...";
 
     try {
 
@@ -133,7 +133,7 @@ async function send(command) {
             encodeURIComponent(command)
         );
 
-        document.querySelector(".status").innerHTML = "🟢 Sent";
+        document.getElementById("status").innerHTML = "🟢 Sent";
 
         addHistory(command);
 
@@ -141,7 +141,7 @@ async function send(command) {
 
     } catch {
 
-        document.querySelector(".status").innerHTML = "🔴 Failed";
+        document.getElementById("status").innerHTML = "🔴 Failed";
 
         toast("Connection Error");
 
