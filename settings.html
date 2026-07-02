@@ -5,56 +5,74 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Settings</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="container">
+<header class="topbar">
 
-<h1>⚙ Settings</h1>
+<div class="logo">
+
+⚙ XTobi Settings
+
+</div>
+
+<nav>
+
+<a href="index.html">Dashboard</a>
+
+</nav>
+
+</header>
+
+<main class="container">
+
+<div class="phone-card">
+
+<h2>Webhook Settings</h2>
+
+<br>
 
 <input
 id="webhook"
-placeholder="Webhook URL"
-style="width:100%;padding:15px;font-size:18px;">
+type="text"
+placeholder="Paste your MacroDroid Webhook here"
+style="width:100%;padding:16px;border-radius:12px;border:none;font-size:16px;">
 
 <br><br>
 
-<button class="btn" onclick="save()">
+<button
+class="control-btn"
+onclick="saveWebhook()">
 
-Save
+Save Webhook
+
+</button>
+
+<br><br>
+
+<button
+class="control-btn"
+style="background:#d32f2f"
+onclick="clearWebhook()">
+
+Delete Webhook
 
 </button>
 
 </div>
 
-<script>
+</main>
 
-document.getElementById("webhook").value=
-
-localStorage.getItem("webhook")||"";
-
-function save(){
-
-localStorage.setItem(
-
-"webhook",
-
-document.getElementById("webhook").value
-
-);
-
-alert("Saved");
-
-}
-
-</script>
+<script src="js/settings.js"></script>
 
 </body>
 
