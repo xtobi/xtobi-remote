@@ -1,18 +1,34 @@
 [
   {
-    "name": "🏠 Home",
-    "command": "home"
+    "id":"home",
+    "title":"Home",
+    "icon":"🏠",
+    "color":"#2196F3",
+    "command":"home",
+    "category":"navigation"
   },
   {
-    "name": "◀️ Back",
-    "command": "back"
+    "id":"back",
+    "title":"Back",
+    "icon":"◀️",
+    "color":"#4CAF50",
+    "command":"back",
+    "category":"navigation"
   },
   {
-    "name": "📋 Recent",
-    "command": "recent"
+    "id":"recent",
+    "title":"Recent",
+    "icon":"📋",
+    "color":"#9C27B0",
+    "command":"recent",
+    "category":"navigation"
   },
   {
-    "name": "🔦 Flash",
-    "command": "flash"
+    "id":"flash",
+    "title":"Flash",
+    "icon":"🔦",
+    "color":"#FF9800",
+    "command":"flash",
+    "category":"tools"
   }
 ]
