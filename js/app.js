@@ -13,7 +13,6 @@ async function loadButtons() {
         const btn = document.createElement("button");
 
         btn.className = "control-btn";
-
         btn.innerHTML = item.title;
 
         btn.onclick = () => send(item.command);
@@ -26,35 +25,28 @@ async function loadButtons() {
 
 async function send(command){
 
-    const webhook = localStorage.getItem(KEY);
+    const base = localStorage.getItem(KEY);
 
-    if(!webhook){
-
+    if(!base){
         location.href="settings.html";
-
         return;
-
     }
+
+    const url =
+        base.replace(/\/$/, "") + "/" + command;
 
     try{
 
-        const r = await fetch(webhook+"?cmd="+encodeURIComponent(command));
+        await fetch(url,{
+            method:"GET",
+            mode:"no-cors"
+        });
 
-        if(r.ok){
+        console.log(url);
 
-            console.log("OK");
+    }catch(e){
 
-        }else{
-
-            alert("Error");
-
-        }
-
-    }
-
-    catch(e){
-
-        alert("Connection Error");
+        console.log(e);
 
     }
 
