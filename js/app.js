@@ -92,7 +92,7 @@ function render(list) {
 
 }
 
-async function send(command) {
+async function async function send(command){  const webhook=localStorage.getItem(KEY);  if(!webhook){  location.href="settings.html";  return;  }  document.querySelector(".status").innerHTML="🟡 Sending...";  try{  await fetch(  webhook+  "?command="+  encodeURIComponent(command)  );  document.querySelector(".status").innerHTML="🟢 Sent";  toast("✓ "+command);  }  catch{  document.querySelector(".status").innerHTML="🔴 Failed";  toast("Connection Error");  }  } {
 
     const webhook = localStorage.getItem(KEY);
 
