@@ -1,10 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>XTobi Remote</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="logo">
+
+📱 XTobi Remote
+
+</div>
+
+<div class="searchBox">
+
+<input
+id="search"
+type="text"
+placeholder="Search command...">
+
+</div>
+
+<a href="settings.html" class="settings">
+
+<span class="material-symbols-rounded">
+
+settings
+
+</span>
+
+</a>
+
+</header>
+
+<main class="container">
+
 <section class="deviceCard">
 
-<div class="deviceInfo">
+<div class="deviceLeft">
 
 <h2 id="deviceName">
 
-Infinix Smart 8
+📱 Infinix Smart 8
 
 </h2>
 
@@ -16,4 +68,88 @@ Infinix Smart 8
 
 </div>
 
+<div class="deviceRight">
+
+<div class="infoBox">
+
+<span class="material-symbols-rounded">
+
+battery_full
+
+</span>
+
+<div>
+
+<h4>Battery</h4>
+
+<p id="battery">
+
+--%
+
+</p>
+
+</div>
+
+</div>
+
+<div class="infoBox">
+
+<span class="material-symbols-rounded">
+
+wifi
+
+</span>
+
+<div>
+
+<h4>Wi-Fi</h4>
+
+<p id="wifi">
+
+Unknown
+
+</p>
+
+</div>
+
+</div>
+
+<div class="infoBox">
+
+<span class="material-symbols-rounded">
+
+network_cell
+
+</span>
+
+<div>
+
+<h4>Mobile</h4>
+
+<p id="mobile">
+
+Unknown
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+<div id="buttons">
+
+</div>
+
+</main>
+
+<div id="toast"></div>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
