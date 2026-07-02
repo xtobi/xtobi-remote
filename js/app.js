@@ -1,77 +1,63 @@
-const WEBHOOK_KEY = "xtobi_webhook";
+const KEY = "xtobi_webhook";
 
-async function loadCommands() {
+async function loadButtons() {
 
-    try {
+    const res = await fetch("data/commands.json");
+    const data = await res.json();
 
-        const response = await fetch("data/commands.json");
+    const area = document.getElementById("buttons");
+    area.innerHTML = "";
 
-        const commands = await response.json();
+    data.forEach(item => {
 
-        const container = document.getElementById("buttons");
+        const btn = document.createElement("button");
 
-        container.innerHTML = "";
+        btn.className = "control-btn";
 
-        commands.forEach(item => {
+        btn.innerHTML = item.title;
 
-            const button = document.createElement("button");
+        btn.onclick = () => send(item.command);
 
-            button.className = "control-btn";
+        area.appendChild(btn);
 
-            button.innerHTML = item.icon + "<br><br>" + item.title;
-
-            button.onclick = () => {
-
-                sendCommand(item.command);
-
-            };
-
-            container.appendChild(button);
-
-        });
-
-    }
-
-    catch (e) {
-
-        console.error(e);
-
-        alert("commands.json not found");
-
-    }
+    });
 
 }
 
-async function sendCommand(command) {
+async function send(command){
 
-    let webhook = localStorage.getItem(WEBHOOK_KEY);
+    const webhook = localStorage.getItem(KEY);
 
-    if (!webhook) {
+    if(!webhook){
 
-        window.location = "settings.html";
+        location.href="settings.html";
 
         return;
 
     }
 
-    try {
+    try{
 
-        const url = webhook + "?cmd=" + encodeURIComponent(command);
+        const r = await fetch(webhook+"?cmd="+encodeURIComponent(command));
 
-        await fetch(url);
+        if(r.ok){
 
-        console.log("Sent:", command);
+            console.log("OK");
+
+        }else{
+
+            alert("Error");
+
+        }
 
     }
 
-    catch (e) {
+    catch(e){
 
-        console.error(e);
-
-        alert("Failed to send command");
+        alert("Connection Error");
 
     }
 
 }
 
-loadCommands();
+loadButtons();
