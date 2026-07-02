@@ -10,15 +10,15 @@
   {
     "category": "Screen",
     "items": [
-      { "title": "🔒 Lock Screen", "command": "lock_screen", "color": "#F44336" },
-      { "title": "🔓 Wake Screen", "command": "wake_screen", "color": "#03A9F4" },
+      { "title": "🔒 Lock", "command": "lock", "color": "#F44336" },
+      { "title": "🔓 Wake", "command": "wake", "color": "#03A9F4" },
       { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" }
     ]
   },
   {
     "category": "Flash",
     "items": [
-      { "title": "💡 Flash ON", "command": "flash_on", "color": "#FFC107" },
+      { "title": "💡 Flash ON", "command": "flash_on", "color": "#FFD600" },
       { "title": "🌑 Flash OFF", "command": "flash_off", "color": "#795548" },
       { "title": "🔄 Flash Toggle", "command": "flash_toggle", "color": "#9C27B0" }
     ]
@@ -29,7 +29,7 @@
       { "title": "🔊 Volume +", "command": "volume_up", "color": "#00BCD4" },
       { "title": "🔉 Volume -", "command": "volume_down", "color": "#3F51B5" },
       { "title": "🔇 Mute", "command": "mute", "color": "#9E9E9E" },
-      { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
+      { "title": "📢 Max", "command": "max_volume", "color": "#E91E63" }
     ]
   },
   {
@@ -46,7 +46,7 @@
     "items": [
       { "title": "🚨 Alarm", "command": "alarm", "color": "#D32F2F" },
       { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
-      { "title": "📍 Get Location", "command": "location", "color": "#8BC34A" },
+      { "title": "📍 Location", "command": "location", "color": "#8BC34A" },
       { "title": "📷 Selfie", "command": "selfie", "color": "#673AB7" },
       { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" }
     ]
