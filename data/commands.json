@@ -29,7 +29,7 @@
       { "title": "🔊 Volume +", "command": "volume_up", "color": "#00BCD4" },
       { "title": "🔉 Volume -", "command": "volume_down", "color": "#3F51B5" },
       { "title": "🔇 Mute", "command": "mute", "color": "#9E9E9E" },
-      { "title": "📢 Max", "command": "max_volume", "color": "#E91E63" }
+      { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
     ]
   },
   {
@@ -38,7 +38,10 @@
       { "title": "🌐 Chrome", "command": "app_chrome", "color": "#4CAF50" },
       { "title": "▶️ YouTube", "command": "app_youtube", "color": "#F44336" },
       { "title": "💬 WhatsApp", "command": "app_whatsapp", "color": "#25D366" },
-      { "title": "⚙️ Settings", "command": "app_settings", "color": "#607D8B" }
+      { "title": "📘 Facebook", "command": "app_facebook", "color": "#1877F2" },
+      { "title": "💬 Messenger", "command": "app_messenger", "color": "#0084FF" },
+      { "title": "🎵 TikTok", "command": "app_tiktok", "color": "#000000" },
+      { "title": "⚙ Settings", "command": "app_settings", "color": "#607D8B" }
     ]
   },
   {
@@ -48,7 +51,8 @@
       { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
       { "title": "📍 Location", "command": "location", "color": "#8BC34A" },
       { "title": "📷 Selfie", "command": "selfie", "color": "#673AB7" },
-      { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" }
+      { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" },
+      { "title": "📋 Clipboard", "command": "clipboard", "color": "#795548" }
     ]
   }
 ]
