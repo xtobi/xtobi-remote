@@ -13,8 +13,7 @@ async function loadButtons() {
         const btn = document.createElement("button");
 
         btn.className = "control-btn";
-
-        btn.innerHTML = item.title;
+        btn.textContent = item.title;
 
         btn.onclick = () => send(item.command);
 
@@ -26,19 +25,16 @@ async function loadButtons() {
 
 async function send(command){
 
-    const url = localStorage.getItem(KEY);
+    const webhook = localStorage.getItem(KEY);
 
-    if(!url){
-
+    if(!webhook){
         location.href="settings.html";
-
         return;
-
     }
 
     try{
 
-        await fetch(url,{
+        await fetch(webhook,{
             method:"POST",
             headers:{
                 "Content-Type":"text/plain"
@@ -46,9 +42,11 @@ async function send(command){
             body:command
         });
 
+        console.log("Sent:",command);
+
     }catch(e){
 
-        console.log(e);
+        console.error(e);
 
     }
 
