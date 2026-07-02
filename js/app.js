@@ -13,6 +13,7 @@ async function loadButtons() {
         const btn = document.createElement("button");
 
         btn.className = "control-btn";
+
         btn.innerHTML = item.title;
 
         btn.onclick = () => send(item.command);
@@ -25,24 +26,25 @@ async function loadButtons() {
 
 async function send(command){
 
-    const base = localStorage.getItem(KEY);
+    const url = localStorage.getItem(KEY);
 
-    if(!base){
+    if(!url){
+
         location.href="settings.html";
-        return;
-    }
 
-    const url =
-        base.replace(/\/$/, "") + "/" + command;
+        return;
+
+    }
 
     try{
 
         await fetch(url,{
-            method:"GET",
-            mode:"no-cors"
+            method:"POST",
+            headers:{
+                "Content-Type":"text/plain"
+            },
+            body:command
         });
-
-        console.log(url);
 
     }catch(e){
 
