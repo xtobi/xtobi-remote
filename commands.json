@@ -1,1 +1,18 @@
-
+[
+  {
+    "name": "🏠 Home",
+    "command": "home"
+  },
+  {
+    "name": "◀️ Back",
+    "command": "back"
+  },
+  {
+    "name": "📋 Recent",
+    "command": "recent"
+  },
+  {
+    "name": "🔦 Flash",
+    "command": "flash"
+  }
+]
