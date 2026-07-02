@@ -1,26 +1,54 @@
 [
   {
-    "title": "🏠 Home",
-    "command": "home"
+    "category": "Navigation",
+    "items": [
+      { "title": "🏠 Home", "command": "home", "color": "#2196F3" },
+      { "title": "◀ Back", "command": "back", "color": "#4CAF50" },
+      { "title": "📋 Recent", "command": "recent", "color": "#FF9800" }
+    ]
   },
   {
-    "title": "◀ Back",
-    "command": "back"
+    "category": "Screen",
+    "items": [
+      { "title": "🔒 Lock Screen", "command": "lock_screen", "color": "#F44336" },
+      { "title": "🔓 Wake Screen", "command": "wake_screen", "color": "#03A9F4" },
+      { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" }
+    ]
   },
   {
-    "title": "📋 Recent",
-    "command": "recent"
+    "category": "Flash",
+    "items": [
+      { "title": "💡 Flash ON", "command": "flash_on", "color": "#FFC107" },
+      { "title": "🌑 Flash OFF", "command": "flash_off", "color": "#795548" },
+      { "title": "🔄 Flash Toggle", "command": "flash_toggle", "color": "#9C27B0" }
+    ]
   },
   {
-    "title": "🔦 Flash",
-    "command": "flash"
+    "category": "Volume",
+    "items": [
+      { "title": "🔊 Volume +", "command": "volume_up", "color": "#00BCD4" },
+      { "title": "🔉 Volume -", "command": "volume_down", "color": "#3F51B5" },
+      { "title": "🔇 Mute", "command": "mute", "color": "#9E9E9E" },
+      { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
+    ]
   },
   {
-    "title": "📱 Chrome",
-    "command": "app.chrome"
+    "category": "Apps",
+    "items": [
+      { "title": "🌐 Chrome", "command": "app_chrome", "color": "#4CAF50" },
+      { "title": "▶️ YouTube", "command": "app_youtube", "color": "#F44336" },
+      { "title": "💬 WhatsApp", "command": "app_whatsapp", "color": "#25D366" },
+      { "title": "⚙️ Settings", "command": "app_settings", "color": "#607D8B" }
+    ]
   },
   {
-    "title": "📳 Vibrate",
-    "command": "vibrate"
+    "category": "Security",
+    "items": [
+      { "title": "🚨 Alarm", "command": "alarm", "color": "#D32F2F" },
+      { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
+      { "title": "📍 Get Location", "command": "location", "color": "#8BC34A" },
+      { "title": "📷 Selfie", "command": "selfie", "color": "#673AB7" },
+      { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" }
+    ]
   }
 ]
