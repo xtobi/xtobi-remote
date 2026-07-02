@@ -92,7 +92,7 @@ function render(list) {
 
 }
 
-async function async function send(command){  const webhook=localStorage.getItem(KEY);  if(!webhook){  location.href="settings.html";  return;  }  document.querySelector(".status").innerHTML="🟡 Sending...";  try{  await fetch(  webhook+  "?command="+  encodeURIComponent(command)  );  document.querySelector(".status").innerHTML="🟢 Sent";  toast("✓ "+command);  }  catch{  document.querySelector(".status").innerHTML="🔴 Failed";  toast("Connection Error");  }  } {
+async function async function send(command){  const webhook=localStorage.getItem(KEY);  if(!webhook){  location.href="settings.html";  return;  }  document.querySelector(".status").innerHTML="🟡 Sending...";  try{  await fetch(  webhook+  "?command="+  encodeURIComponent(command)  );  document.querySelector(".status").innerHTML="🟢 Sent";  addHistory(command);  toast("✓ "+command);  }  catch{  document.querySelector(".status").innerHTML="🔴 Failed";  toast("Connection Error");  }  } {
 
     const webhook = localStorage.getItem(KEY);
 
@@ -139,5 +139,26 @@ setTimeout(()=>{
 t.style.display="none";
 
 },1500);
+    let history=[];
+
+function addHistory(command){
+
+history.unshift({
+
+time:new Date().toLocaleTimeString(),
+
+cmd:command
+
+});
+
+if(history.length>20){
+
+history.pop();
+
+}
+
+localStorage.setItem("xtobi_history",JSON.stringify(history));
+
+}
 
 }
