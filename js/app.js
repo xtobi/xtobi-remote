@@ -1,24 +1,62 @@
 const KEY = "xtobi_webhook";
 
-let commands = [];
+let data = [];
 
 async function init() {
 
     const res = await fetch("data/commands.json");
 
-    commands = await res.json();
+    data = await res.json();
 
-    render();
+    render(data);
+
+    document.getElementById("search").addEventListener("input", filter);
 
 }
 
-function render() {
+function filter() {
+
+    const q = document.getElementById("search").value.toLowerCase();
+
+    if (q === "") {
+
+        render(data);
+
+        return;
+
+    }
+
+    const result = [];
+
+    data.forEach(section => {
+
+        const items = section.items.filter(item =>
+            item.title.toLowerCase().includes(q) ||
+            item.command.toLowerCase().includes(q)
+        );
+
+        if (items.length > 0) {
+
+            result.push({
+                category: section.category,
+                items: items
+            });
+
+        }
+
+    });
+
+    render(result);
+
+}
+
+function render(list) {
 
     const container = document.getElementById("buttons");
 
     container.innerHTML = "";
 
-    commands.forEach(section => {
+    list.forEach(section => {
 
         const title = document.createElement("h2");
 
@@ -40,7 +78,7 @@ function render() {
 
             btn.style.background = item.color;
 
-            btn.innerHTML = item.title;
+            btn.textContent = item.title;
 
             btn.onclick = () => send(item.command);
 
@@ -54,29 +92,31 @@ function render() {
 
 }
 
-async function send(command){
+async function send(command) {
 
     const webhook = localStorage.getItem(KEY);
 
-    if(!webhook){
+    if (!webhook) {
 
-        location.href="settings.html";
+        location.href = "settings.html";
 
         return;
 
     }
 
-    const url = webhook + "?command=" + encodeURIComponent(command);
+    try {
 
-    try{
-
-        await fetch(url);
+        await fetch(
+            webhook +
+            "?command=" +
+            encodeURIComponent(command)
+        );
 
         toast("✓ " + command);
 
     }
 
-    catch{
+    catch {
 
         toast("Connection Error");
 
@@ -84,45 +124,19 @@ async function send(command){
 
 }
 
-function toast(text){
+function toast(text) {
 
-    let old = document.getElementById("toast");
+    const t = document.getElementById("toast");
 
-    if(old) old.remove();
+    t.innerHTML = text;
 
-    const t = document.createElement("div");
+    t.style.display = "block";
 
-    t.id="toast";
+    setTimeout(() => {
 
-    t.innerHTML=text;
+        t.style.display = "none";
 
-    t.style.position="fixed";
-
-    t.style.left="50%";
-
-    t.style.bottom="30px";
-
-    t.style.transform="translateX(-50%)";
-
-    t.style.background="#212121";
-
-    t.style.color="white";
-
-    t.style.padding="15px 30px";
-
-    t.style.borderRadius="15px";
-
-    t.style.boxShadow="0 5px 20px rgba(0,0,0,.4)";
-
-    t.style.zIndex="99999";
-
-    document.body.appendChild(t);
-
-    setTimeout(()=>{
-
-        t.remove();
-
-    },1500);
+    }, 1500);
 
 }
 
