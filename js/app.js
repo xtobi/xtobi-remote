@@ -124,20 +124,20 @@ async function send(command) {
 
 }
 
-function toast(text) {
+function toast(text){
 
-    const t = document.getElementById("toast");
+const t=document.getElementById("toast");
 
-    t.innerHTML = text;
+t.innerHTML=text;
 
-    t.style.display = "block";
+t.style.display="block";
 
-    setTimeout(() => {
+document.getElementById("lastCommand").innerHTML=text.replace("✓ ","");
 
-        t.style.display = "none";
+setTimeout(()=>{
 
-    }, 1500);
+t.style.display="none";
+
+},1500);
 
 }
-
-init();
