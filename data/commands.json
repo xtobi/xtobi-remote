@@ -1,34 +1,26 @@
 [
-    {
-        "title": "🏠 Home",
-        "command": "home"
-    },
-    {
-        "title": "◀ Back",
-        "command": "back"
-    },
-    {
-        "title": "📋 Recent",
-        "command": "recent"
-    },
-    {
-        "title": "🔦 Flash",
-        "command": "flash"
-    },
-    {
-        "title": "📱 Chrome",
-        "command": "app.chrome"
-    },
-    {
-        "title": "⚙ Settings",
-        "command": "app.settings"
-    },
-    {
-        "title": "📳 Vibrate",
-        "command": "vibrate"
-    },
-    {
-        "title": "🚨 Alarm",
-        "command": "alarm"
-    }
+  {
+    "title": "🏠 Home",
+    "command": "home"
+  },
+  {
+    "title": "◀ Back",
+    "command": "back"
+  },
+  {
+    "title": "📋 Recent",
+    "command": "recent"
+  },
+  {
+    "title": "🔦 Flash",
+    "command": "flash"
+  },
+  {
+    "title": "📱 Chrome",
+    "command": "app.chrome"
+  },
+  {
+    "title": "📳 Vibrate",
+    "command": "vibrate"
+  }
 ]
