@@ -15,40 +15,21 @@ async function loadButtons() {
         btn.className = "control-btn";
         btn.textContent = item.title;
 
-        btn.onclick = () => send(item.command);
+        btn.onclick = async () => {
+
+            const base = localStorage.getItem(KEY);
+
+            const url = base.replace(/\/$/, "") + "/" + item.command;
+
+            console.log(url);
+
+            window.open(url,"_blank");
+
+        };
 
         area.appendChild(btn);
 
     });
-
-}
-
-async function send(command){
-
-    const webhook = localStorage.getItem(KEY);
-
-    if(!webhook){
-        location.href="settings.html";
-        return;
-    }
-
-    try{
-
-        await fetch(webhook,{
-            method:"POST",
-            headers:{
-                "Content-Type":"text/plain"
-            },
-            body:command
-        });
-
-        console.log("Sent:",command);
-
-    }catch(e){
-
-        console.error(e);
-
-    }
 
 }
 
