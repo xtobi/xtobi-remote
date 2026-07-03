@@ -54,6 +54,7 @@
     "items": [
       { "title": "🚨 Alarm", "command": "alarm", "color": "#D32F2F" },
       { "title": "🔕 Stop Alarm", "command": "stop_alarm", "color": "#616161" },
+      { "title": "🚨 Lost Mode", "command": "loc", "color": "#D32F2F" },
       { "title": "👻 Ghost Lock ON", "command": "ghost_lock_on", "color": "#8E24AA" },
 { "title": "👻 Ghost Lock OFF", "command": "ghost_lock_off", "color": "#6D4C41" },
       { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
