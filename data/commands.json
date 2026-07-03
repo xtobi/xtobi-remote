@@ -65,7 +65,6 @@
       { "title": "⏹️ Stop Video Rec", "command": "recvidstp", "color": "#546E7A" },
       { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" },
       { "title": "📋 Clipboard", "command": "clipboard", "color": "#795548" }
-      { "title": "📁 Last File", "command": "last_file", "color": "#795548" }
-    ]
+{ "title": "📁 Last File", "command": "lastfile", "color": "#5E35B1" }]
   }
 ]
