@@ -24,7 +24,6 @@ async function init() {
     document
         .getElementById("search")
         .addEventListener("input", filter);
-
 }
 
 function filter() {
@@ -35,11 +34,8 @@ function filter() {
         .toLowerCase();
 
     if (q === "") {
-
         render(data);
-
         return;
-
     }
 
     const result = [];
@@ -52,21 +48,15 @@ function filter() {
         );
 
         if (items.length) {
-
             result.push({
-
                 category: section.category,
-
                 items: items
-
             });
-
         }
 
     });
 
     render(result);
-
 }
 
 function render(list) {
@@ -80,7 +70,6 @@ function render(list) {
         const title = document.createElement("h2");
 
         title.className = "category-title";
-
         title.textContent = section.category;
 
         container.appendChild(title);
@@ -94,9 +83,7 @@ function render(list) {
             const btn = document.createElement("button");
 
             btn.className = "control-btn";
-
             btn.style.background = item.color;
-
             btn.textContent = item.title;
 
             btn.onclick = () => send(item.command);
@@ -116,22 +103,21 @@ async function send(command) {
     const webhook = localStorage.getItem(KEY);
 
     if (!webhook) {
-
         location.href = "settings.html";
-
         return;
-
     }
 
     document.getElementById("status").innerHTML = "🟡 Sending...";
 
     try {
 
-        await fetch(
-            webhook +
-            "?command=" +
-            encodeURIComponent(command)
-        );
+        const url =
+            webhook.replace(/\/$/, "") + "/" + command;
+
+        await fetch(url, {
+            method: "GET",
+            mode: "no-cors"
+        });
 
         document.getElementById("status").innerHTML = "🟢 Sent";
 
@@ -139,7 +125,11 @@ async function send(command) {
 
         toast("✓ " + command);
 
-    } catch {
+        console.log(url);
+
+    } catch (e) {
+
+        console.error(e);
 
         document.getElementById("status").innerHTML = "🔴 Failed";
 
@@ -154,7 +144,6 @@ function toast(text) {
     const t = document.getElementById("toast");
 
     t.innerHTML = text;
-
     t.style.display = "block";
 
     setTimeout(() => {
@@ -168,17 +157,12 @@ function toast(text) {
 function addHistory(command) {
 
     history.unshift({
-
         time: new Date().toLocaleTimeString(),
-
         cmd: command
-
     });
 
     if (history.length > 20) {
-
         history.pop();
-
     }
 
     localStorage.setItem(
