@@ -26,8 +26,8 @@
   {
     "category": "Volume",
     "items": [
-      { "title": "🔊 Volume +", "command": "volume_up", "color": "#00BCD4" },
-      { "title": "🔉 Volume -", "command": "volume_down", "color": "#3F51B5" },
+      { "title": "🔊 Record", "command": "start_record", "color": "#00BCD4" },
+      { "title": "🔉 Stop Rec -", "command": "stop_record", "color": "#3F51B5" },
       { "title": "🔇 Mute", "command": "mute", "color": "#9E9E9E" },
       { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
     ]
