@@ -1,13 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
-  getFirestore,
-  doc,
-  onSnapshot
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+  getDatabase,
+  ref,
+  onValue
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVH_VDsuGKMV9D8YK0nzDwzTs1cAhS6Rk",
   authDomain: "xtobi-remote.firebaseapp.com",
+  databaseURL: "https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "xtobi-remote",
   storageBucket: "xtobi-remote.firebasestorage.app",
   messagingSenderId: "755933947719",
@@ -15,15 +16,15 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = getDatabase(app);
 
-const phoneRef = doc(db, "devices", "phone");
+const root = ref(db);
 
-onSnapshot(phoneRef, (snapshot) => {
+onValue(root, (snapshot) => {
 
-    if (!snapshot.exists()) return;
+    const data = snapshot.val();
 
-    const data = snapshot.data();
+    if (!data) return;
 
     if (data.battery !== undefined) {
         document.getElementById("battery").innerHTML = data.battery + "%";
