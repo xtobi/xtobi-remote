@@ -13,6 +13,11 @@
       { "title": "🔒 Lock", "command": "lock", "color": "#F44336" },
       { "title": "🔓 Wake", "command": "wake", "color": "#03A9F4" },
       { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" }
+      { "title": "🌙 Dim Screen ON", "command": "dimon", "color": "#5C6BC0" },
+      { "title": "☀️ Brightness 100%", "command": "bright", "color": "#FFC107" },
+{ "title": "☀️ Dim Screen OFF", "command": "dimof", "color": "#FFA726" },
+      { "title": "🔋 Battery Saver ON", "command": "batsvr", "color": "#8BC34A" },
+{ "title": "🪫 Battery Saver OFF", "command": "batsvrof", "color": "#607D8B" },
     ]
   },
   {
@@ -26,8 +31,8 @@
   {
     "category": "Volume",
     "items": [
-{ "title": "🎙️ Start Rec", "command": "start_record", "color": "#00BCD4" },
-{ "title": "🛑 Stop Rec", "command": "stop_record", "color": "#3F51B5" },
+{ "title": "🎙️ Start Rec", "command": "start_rec", "color": "#00BCD4" },
+{ "title": "🛑 Stop Rec", "command": "stop_rec", "color": "#3F51B5" },
       { "title": "🔇 Mute", "command": "mute", "color": "#9E9E9E" },
       { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
     ]
@@ -48,6 +53,7 @@
     "category": "Security",
     "items": [
       { "title": "🚨 Alarm", "command": "alarm", "color": "#D32F2F" },
+      { "title": "🔕 Stop Alarm", "command": "stop_alarm", "color": "#616161" },
       { "title": "👻 Ghost Lock ON", "command": "ghost_lock_on", "color": "#8E24AA" },
 { "title": "👻 Ghost Lock OFF", "command": "ghost_lock_off", "color": "#6D4C41" },
       { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
