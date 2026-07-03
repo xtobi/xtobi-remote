@@ -12,12 +12,12 @@
     "items": [
       { "title": "🔒 Lock", "command": "lock", "color": "#F44336" },
       { "title": "🔓 Wake", "command": "wake", "color": "#03A9F4" },
-      { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" }
+      { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" },
       { "title": "🌙 Dim Screen ON", "command": "dimon", "color": "#5C6BC0" },
       { "title": "☀️ Brightness 100%", "command": "bright", "color": "#FFC107" },
-{ "title": "☀️ Dim Screen OFF", "command": "dimof", "color": "#FFA726" },
+      { "title": "☀️ Dim Screen OFF", "command": "dimof", "color": "#FFA726" },
       { "title": "🔋 Battery Saver ON", "command": "batsvr", "color": "#8BC34A" },
-{ "title": "🪫 Battery Saver OFF", "command": "batsvrof", "color": "#607D8B" },
+      { "title": "🪫 Battery Saver OFF", "command": "batsvrof", "color": "#607D8B" }
     ]
   },
   {
@@ -29,9 +29,9 @@
     ]
   },
   {
-    "category": "Volume",
+    "category": "Audio",
     "items": [
-            { "title": "🚨 Play Siren", "command": "alarm", "color": "#D32F2F" },
+      { "title": "🚨 Play Siren", "command": "alarm", "color": "#D32F2F" },
       { "title": "🔕 Stop Siren", "command": "stop_alarm", "color": "#616161" },
       { "title": "🔇 Silent", "command": "mute", "color": "#9E9E9E" },
       { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
@@ -46,7 +46,7 @@
       { "title": "📘 Facebook", "command": "app_facebook", "color": "#1877F2" },
       { "title": "💬 Messenger", "command": "app_messenger", "color": "#0084FF" },
       { "title": "🎵 TikTok", "command": "app_tiktok", "color": "#000000" },
-      { "title": "⚙ Settings", "command": "app_settings", "color": "#607D8B" }
+      { "title": "⚙️ Settings", "command": "app_settings", "color": "#607D8B" }
     ]
   },
   {
@@ -54,15 +54,15 @@
     "items": [
       { "title": "🚨 Lost Mode", "command": "loc", "color": "#D32F2F" },
       { "title": "👻 Ghost Lock ON", "command": "ghost_lock_on", "color": "#8E24AA" },
-{ "title": "👻 Ghost Lock OFF", "command": "ghost_lock_off", "color": "#6D4C41" },
+      { "title": "👻 Ghost Lock OFF", "command": "ghost_lock_off", "color": "#6D4C41" },
       { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
       { "title": "📡 Enable GPS", "command": "location", "color": "#8BC34A" },
-{ "title": "📷 Take Picture (Rear)", "command": "camera_rear", "color": "#009688" },
-{ "title": "🤳 Take Picture (Front)", "command": "camera_front", "color": "#3F51B5" },
+      { "title": "📷 Take Picture (Rear)", "command": "camera_rear", "color": "#009688" },
+      { "title": "🤳 Take Picture (Front)", "command": "camera_front", "color": "#3F51B5" },
       { "title": "🎙️ Start Rec", "command": "start_rec", "color": "#00BCD4" },
-{ "title": "🛑 Stop Rec", "command": "stop_rec", "color": "#3F51B5" },
+      { "title": "🛑 Stop Rec", "command": "stop_rec", "color": "#3F51B5" },
       { "title": "🎥 Start Video Rec", "command": "recvid", "color": "#E53935" },
-{ "title": "⏹️ Stop Video Rec", "command": "recvidstp", "color": "#546E7A" },
+      { "title": "⏹️ Stop Video Rec", "command": "recvidstp", "color": "#546E7A" },
       { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" },
       { "title": "📋 Clipboard", "command": "clipboard", "color": "#795548" }
     ]
