@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>XTobi Remote</title>
@@ -12,7 +11,6 @@
 <link rel="stylesheet" href="css/style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
 
 </head>
@@ -22,35 +20,25 @@
 <header class="topbar">
 
 <div class="logo">
-
 📱 XTobi Remote
-
 </div>
 
 <div class="searchBox">
-
 <input
 id="search"
 type="text"
 placeholder="Search command..."
 autocomplete="off">
-
 </div>
 
 <div class="status" id="status">
-
 🟢 Ready
-
 </div>
 
 <a href="settings.html" class="settings">
-
 <span class="material-symbols-rounded">
-
 settings
-
 </span>
-
 </a>
 
 </header>
@@ -62,27 +50,23 @@ settings
 <div class="deviceLeft">
 
 <h2 id="deviceName">
-
 📱 Infinix Smart 8
-
 </h2>
 
 <p class="online">
-
 🟢 Connected
-
 </p>
 
 </div>
 
 <div class="deviceRight">
 
+<!-- Battery -->
+
 <div class="infoBox">
 
 <span class="material-symbols-rounded">
-
 battery_full
-
 </span>
 
 <div>
@@ -90,41 +74,39 @@ battery_full
 <h4>Battery</h4>
 
 <p id="battery">
-
 --%
-
 </p>
 
 </div>
 
 </div>
 
-<div class="infoBox">
+<!-- Location -->
+
+<div class="infoBox" id="locationCard" style="cursor:pointer;">
 
 <span class="material-symbols-rounded">
-
-wifi
-
+location_on
 </span>
 
 <div>
 
-<h4>📍 Location</h4>
-<p id="location">Loading...</p>
+<h4>Location</h4>
 
-Unknown
-
+<p id="location">
+Tap to update
 </p>
 
 </div>
 
 </div>
 
-<div class="infoBox" id="locationCard">
+<!-- Mobile -->
+
+<div class="infoBox">
+
 <span class="material-symbols-rounded">
-
 network_cell
-
 </span>
 
 <div>
@@ -132,9 +114,7 @@ network_cell
 <h4>Mobile</h4>
 
 <p id="mobile">
-
 Unknown
-
 </p>
 
 </div>
@@ -153,7 +133,9 @@ Unknown
 
 <h2>📜 Command History</h2>
 
-<p class="online">Last Commands</p>
+<p class="online">
+Last Commands
+</p>
 
 </div>
 
@@ -162,9 +144,7 @@ Unknown
 <div class="infoBox">
 
 <span class="material-symbols-rounded">
-
 history
-
 </span>
 
 <div>
@@ -172,10 +152,9 @@ history
 <h4>Last Command</h4>
 
 <div id="lastCommand">
-
 No commands yet
-
 </div>
+
 </div>
 
 </div>
@@ -190,6 +169,6 @@ No commands yet
 
 <script src="js/app.js"></script>
 <script type="module" src="js/firebase.js"></script>
-</body>
 
+</body>
 </html>
