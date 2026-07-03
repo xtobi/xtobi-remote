@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 let lastLat = null;
-let lastLng = null;
+let lastLon = null;
 
 const root = ref(db);
 
@@ -37,22 +37,23 @@ onValue(root, (snapshot) => {
         document.getElementById("mobile").innerHTML = data.mobile;
     }
 
-    if (data.lat !== undefined && data.lng !== undefined) {
+    if (data.location) {
 
-        lastLat = data.lat;
-        lastLng = data.lng;
+        lastLat = data.location.lat;
+        lastLon = data.location.lon;
 
-        document.getElementById("location").innerHTML = "Open Google Maps";
+        document.getElementById("location").innerHTML =
+            "📍 Open in Google Maps";
     }
 
 });
 
 document.getElementById("locationCard").addEventListener("click", () => {
 
-    if (lastLat === null || lastLng === null) return;
+    if (!lastLat || !lastLon) return;
 
     window.open(
-        `https://www.google.com/maps?q=${lastLat},${lastLng}`,
+        `https://www.google.com/maps?q=${lastLat},${lastLon}`,
         "_blank"
     );
 
