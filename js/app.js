@@ -111,12 +111,12 @@ async function send(command) {
 
     try {
 
-        const url =
-            webhook.replace(/\/$/, "") + "/" + command;
-
-        await fetch(url, {
-            method: "GET",
-            mode: "no-cors"
+        await fetch(webhook, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain"
+            },
+            body: command
         });
 
         document.getElementById("status").innerHTML = "🟢 Sent";
@@ -124,8 +124,6 @@ async function send(command) {
         addHistory(command);
 
         toast("✓ " + command);
-
-        console.log(url);
 
     } catch (e) {
 
