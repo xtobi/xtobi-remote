@@ -1,22 +1,25 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
-  getDatabase,
-  ref,
-  onValue
+    getDatabase,
+    ref,
+    onValue
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAVH_VDsuGKMV9D8YK0nzDwzTs1cAhS6Rk",
-  authDomain: "xtobi-remote.firebaseapp.com",
-  databaseURL: "https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "xtobi-remote",
-  storageBucket: "xtobi-remote.firebasestorage.app",
-  messagingSenderId: "755933947719",
-  appId: "1:755933947719:web:c6021e6afa7a3e07fc4e62"
+    apiKey: "AIzaSyAVH_VDsuGKMV9D8YK0nzDwzTs1cAhS6Rk",
+    authDomain: "xtobi-remote.firebaseapp.com",
+    databaseURL: "https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "xtobi-remote",
+    storageBucket: "xtobi-remote.firebasestorage.app",
+    messagingSenderId: "755933947719",
+    appId: "1:755933947719:web:c6021e6afa7a3e07fc4e62"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+let lastLat = null;
+let lastLng = null;
 
 const root = ref(db);
 
@@ -30,12 +33,27 @@ onValue(root, (snapshot) => {
         document.getElementById("battery").innerHTML = data.battery + "%";
     }
 
-    if (data.wifi !== undefined) {
-        document.getElementById("wifi").innerHTML = data.wifi;
-    }
-
     if (data.mobile !== undefined) {
         document.getElementById("mobile").innerHTML = data.mobile;
     }
+
+    if (data.lat !== undefined && data.lng !== undefined) {
+
+        lastLat = data.lat;
+        lastLng = data.lng;
+
+        document.getElementById("location").innerHTML = "Open Google Maps";
+    }
+
+});
+
+document.getElementById("locationCard").addEventListener("click", () => {
+
+    if (lastLat === null || lastLng === null) return;
+
+    window.open(
+        `https://www.google.com/maps?q=${lastLat},${lastLng}`,
+        "_blank"
+    );
 
 });
