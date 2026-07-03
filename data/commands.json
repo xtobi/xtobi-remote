@@ -26,8 +26,8 @@
   {
     "category": "Volume",
     "items": [
-      { "title": "🔊 Record", "command": "start_record", "color": "#00BCD4" },
-      { "title": "🔉 Stop Rec", "command": "stop_record", "color": "#3F51B5" },
+{ "title": "🎙️ Start Rec", "command": "start_record", "color": "#00BCD4" },
+{ "title": "🛑 Stop Rec", "command": "stop_record", "color": "#3F51B5" },
       { "title": "🔇 Mute", "command": "mute", "color": "#9E9E9E" },
       { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
     ]
@@ -48,9 +48,12 @@
     "category": "Security",
     "items": [
       { "title": "🚨 Alarm", "command": "alarm", "color": "#D32F2F" },
+      { "title": "👻 Ghost Lock ON", "command": "ghost_lock_on", "color": "#8E24AA" },
+{ "title": "👻 Ghost Lock OFF", "command": "ghost_lock_off", "color": "#6D4C41" },
       { "title": "📳 Vibrate", "command": "vibrate", "color": "#009688" },
       { "title": "📍 Location", "command": "location", "color": "#8BC34A" },
-      { "title": "📷 Selfie", "command": "selfie", "color": "#673AB7" },
+{ "title": "📷 Take Picture (Rear)", "command": "camera_rear", "color": "#009688" },
+{ "title": "🤳 Take Picture (Front)", "command": "camera_front", "color": "#3F51B5" },
       { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" },
       { "title": "📋 Clipboard", "command": "clipboard", "color": "#795548" }
     ]
