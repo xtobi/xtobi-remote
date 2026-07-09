@@ -28,7 +28,15 @@ function buildStreamUrl(stream) {
 function renderDevices(data) {
   deviceList.innerHTML = "";
 
-  const devices = data?.devices || {};
+  const devices = dataconst devices = data?.devices || {
+    default: {
+        name: "Current Device",
+        battery: data.battery,
+        mobile: data.mobile,
+        location: data.location,
+        stream: data.stream || {}
+    }
+};?.devices || {};
   const keys = Object.keys(devices);
 
   if (keys.length === 0) {
