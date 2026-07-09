@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XTobi Live</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+  <style>
+    .liveWrap{max-width:900px;margin:0 auto;padding:20px}
+    .liveHeader{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}
+    .liveTitle{font-size:28px;font-weight:700}
+    .liveSub{opacity:.75;margin-top:4px}
+    .deviceList{display:grid;gap:14px}
+    .streamCard{padding:18px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10)}
+    .streamTop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+    .streamName{font-size:20px;font-weight:700;margin:0}
+    .streamStatus{font-weight:700}
+    .streamMeta{margin-top:10px;opacity:.85;line-height:1.7}
+    .watchBtn{margin-top:14px;display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;border:none;cursor:pointer;font-weight:700}
+    .watchBtn:disabled{opacity:.45;cursor:not-allowed}
+    .backBtn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.08)}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">📺 XTobi Live</div>
+    <a href="index.html" class="settings" style="text-decoration:none">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </a>
+  </header>
+
+  <main class="liveWrap">
+    <div class="deviceCard" style="margin-bottom:18px">
+      <div class="deviceLeft">
+        <h2 class="liveTitle">Live Devices</h2>
+        <p class="liveSub">اضغط على Watch لفتح بث الجهاز مباشرة</p>
+      </div>
+    </div>
+
+    <div id="deviceList" class="deviceList"></div>
+  </main>
+
+  <script type="module" src="js/live.js"></script>
+</body>
+</html>
