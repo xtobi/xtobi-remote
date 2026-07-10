@@ -104,25 +104,67 @@ async function send(command) {
         addHistory(command);
         toast("✓ " + command);
 
-        if (command === "streamon") {
-            setTimeout(async () => {
-                try {
-                    const streamRes = await fetch("https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app/stream_url.json");
-                    const url = await streamRes.json();
+     if (command === "streamon") {
 
-                    if (typeof url === "string" && url.trim().startsWith("http")) {
-                        window.open(url.trim(), "_blank", "noopener,noreferrer");
-                    } else {
-                        toast("Stream URL not found");
-                        document.getElementById("status").innerHTML = "🔴 Stream Missing";
-                    }
-                } catch (err) {
-                    console.error(err);
-                    toast("Failed to read stream URL");
-                    document.getElementById("status").innerHTML = "🔴 Stream Error";
-                }
-            }, 26000);
+    document.getElementById("status").innerHTML =
+        "📺 Starting Stream...";
+
+    toast("Starting ScreenStream...");
+
+    setTimeout(async () => {
+
+        document.getElementById("status").innerHTML =
+            "⏳ Waiting for Stream URL...";
+
+        try {
+
+            const streamRes = await fetch(
+                "https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app/stream_url.json"
+            );
+
+            const url = await streamRes.json();
+
+            if (typeof url === "string" && url.trim().startsWith("http")) {
+
+                document.getElementById("status").innerHTML =
+                    "🟢 Opening Stream...";
+
+                toast("Opening Live Stream");
+
+                window.open(
+                    url.trim(),
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+                setTimeout(() => {
+                    document.getElementById("status").innerHTML =
+                        "🟢 Ready";
+                }, 2000);
+
+            } else {
+
+                document.getElementById("status").innerHTML =
+                    "🔴 Stream URL Not Found";
+
+                toast("Stream URL not found");
+
+            }
+
+        } catch (err) {
+
+            console.error(err);
+
+            document.getElementById("status").innerHTML =
+                "🔴 Stream Error";
+
+            toast("Failed to read Stream URL");
+
         }
+
+    }, 26000);
+
+}
     } catch (e) {
         console.error(e);
         document.getElementById("status").innerHTML = "🔴 Failed";
