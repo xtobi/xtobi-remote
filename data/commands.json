@@ -24,9 +24,9 @@
     "category": "Flash",
     "items": [
       { "title": "💡 Flash ON", "command": "flash_on", "color": "#FFD600" },
-      { "title": "🌑 Flash OFF", "command": "flash_off", "color": "#795548" },
+      { "title": "🌑 Flash OFF", "command": "flash_off", "color": "#795548" }
     ]
-  }
+  },
   {
     "category": "Audio",
     "items": [
@@ -36,7 +36,6 @@
       { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
     ]
   },
-  
   {
     "category": "Security",
     "items": [
