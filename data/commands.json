@@ -37,18 +37,7 @@
       { "title": "📢 Max Volume", "command": "max_volume", "color": "#E91E63" }
     ]
   },
-  {
-    "category": "Apps",
-    "items": [
-      { "title": "🌐 Chrome", "command": "app_chrome", "color": "#4CAF50" },
-      { "title": "▶️ YouTube", "command": "app_youtube", "color": "#F44336" },
-      { "title": "💬 WhatsApp", "command": "app_whatsapp", "color": "#25D366" },
-      { "title": "📘 Facebook", "command": "app_facebook", "color": "#1877F2" },
-      { "title": "💬 Messenger", "command": "app_messenger", "color": "#0084FF" },
-      { "title": "🎵 TikTok", "command": "app_tiktok", "color": "#000000" },
-      { "title": "⚙️ Settings", "command": "app_settings", "color": "#607D8B" }
-    ]
-  },
+  
   {
     "category": "Security",
     "items": [
