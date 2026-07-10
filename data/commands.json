@@ -25,7 +25,6 @@
     "items": [
       { "title": "💡 Flash ON", "command": "flash_on", "color": "#FFD600" },
       { "title": "🌑 Flash OFF", "command": "flash_off", "color": "#795548" },
-      { "title": "🔄 Flash Toggle", "command": "flash_toggle", "color": "#9C27B0" }
     ]
   },
   {
