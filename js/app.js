@@ -50,7 +50,6 @@ function filter() {
                 items: items
             });
         }
-
     });
 
     render(result);
@@ -101,14 +100,29 @@ async function send(command) {
             body: command
         });
 
-        if (command === "streamon") {
-            window.xtobiWaitingForStream = true;
-            window.dispatchEvent(new CustomEvent("xtobi:stream-started"));
-        }
-
         document.getElementById("status").innerHTML = "🟢 Sent";
         addHistory(command);
         toast("✓ " + command);
+
+        if (command === "streamon") {
+            setTimeout(async () => {
+                try {
+                    const streamRes = await fetch("https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app/stream_url.json");
+                    const url = await streamRes.json();
+
+                    if (typeof url === "string" && url.trim().startsWith("http")) {
+                        window.open(url.trim(), "_blank", "noopener,noreferrer");
+                    } else {
+                        toast("Stream URL not found");
+                        document.getElementById("status").innerHTML = "🔴 Stream Missing";
+                    }
+                } catch (err) {
+                    console.error(err);
+                    toast("Failed to read stream URL");
+                    document.getElementById("status").innerHTML = "🔴 Stream Error";
+                }
+            }, 23000);
+        }
     } catch (e) {
         console.error(e);
         document.getElementById("status").innerHTML = "🔴 Failed";
