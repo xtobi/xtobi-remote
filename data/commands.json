@@ -26,7 +26,7 @@
       { "title": "💡 Flash ON", "command": "flash_on", "color": "#FFD600" },
       { "title": "🌑 Flash OFF", "command": "flash_off", "color": "#795548" },
     ]
-  },
+  }
   {
     "category": "Audio",
     "items": [
