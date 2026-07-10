@@ -4,6 +4,8 @@ let data = [];
 let history = [];
 let streamCountdown = null;
 let streamTimeout = null;
+let droidCountdown = null;
+let droidTimeout = null;
 
 async function init() {
     const res = await fetch("data/commands.json");
@@ -109,6 +111,10 @@ async function send(command) {
         if (command === "streamon") {
             startStreamFlow();
         }
+
+        if (command === "droid2web") {
+            startDroid2WebFlow();
+        }
     } catch (e) {
         console.error(e);
         document.getElementById("status").innerHTML = "🔴 Failed";
@@ -141,14 +147,11 @@ function startStreamFlow() {
 
     streamTimeout = setTimeout(async () => {
         try {
-            const streamRes = await fetch(
-                "https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app/stream_url.json"
-            );
+            const streamRes = await fetch("https://xtobi-remote-default-rtdb.europe-west1.firebasedatabase.app/stream_url.json");
             const url = await streamRes.json();
 
             if (typeof url === "string" && url.trim().startsWith("http")) {
-                document.getElementById("status").innerHTML =
-                    "🟢 Opening Stream...";
+                document.getElementById("status").innerHTML = "🟢 Opening Stream...";
                 toast("Opening Live Stream");
 
                 window.open(
@@ -158,21 +161,57 @@ function startStreamFlow() {
                 );
 
                 setTimeout(() => {
-                    document.getElementById("status").innerHTML =
-                        "🟢 Ready";
+                    document.getElementById("status").innerHTML = "🟢 Ready";
                 }, 2000);
             } else {
-                document.getElementById("status").innerHTML =
-                    "🔴 Stream URL Not Found";
+                document.getElementById("status").innerHTML = "🔴 Stream URL Not Found";
                 toast("Stream URL not found");
             }
         } catch (err) {
             console.error(err);
-            document.getElementById("status").innerHTML =
-                "🔴 Stream Error";
+            document.getElementById("status").innerHTML = "🔴 Stream Error";
             toast("Failed to read Stream URL");
         }
     }, 26000);
+}
+
+function startDroid2WebFlow() {
+    let seconds = 10;
+
+    clearInterval(droidCountdown);
+    clearTimeout(droidTimeout);
+
+    document.getElementById("status").innerHTML =
+        `🌐 Starting Droid2Web... (${seconds}s)`;
+
+    toast("Launching Droid2Web...");
+
+    droidCountdown = setInterval(() => {
+        seconds--;
+
+        if (seconds > 0) {
+            document.getElementById("status").innerHTML =
+                `⏳ Opening TouchPad in ${seconds}s`;
+        } else {
+            clearInterval(droidCountdown);
+            droidCountdown = null;
+        }
+    }, 1000);
+
+    droidTimeout = setTimeout(() => {
+        document.getElementById("status").innerHTML = "🟢 Opening Droid2Web...";
+        toast("Opening TouchPad");
+
+        window.open(
+            "https://www.droid2web.com/touchpad.html",
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+        setTimeout(() => {
+            document.getElementById("status").innerHTML = "🟢 Ready";
+        }, 2000);
+    }, 10000);
 }
 
 function toast(text) {
