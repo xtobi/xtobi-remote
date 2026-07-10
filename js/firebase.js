@@ -22,20 +22,27 @@ let lastLat = null;
 let lastLon = null;
 let lastOpenedStreamUrl = null;
 let offlineTimer = null;
-let hasSeenAnyUpdate = false;
 
 const root = ref(db);
 const streamUrlRef = ref(db, "stream_url");
 
 function updateConnectionStatus(connected) {
     const statusEl = document.getElementById("connectionStatus");
+    const screenEl = document.getElementById("screen");
+
     if (!statusEl) return;
 
-    statusEl.innerHTML = connected ? "🟢 Connected" : "🔴 Offline";
+    if (connected) {
+        statusEl.innerHTML = "🟢 Connected";
+    } else {
+        statusEl.innerHTML = "🔴 Offline";
+        if (screenEl) {
+            screenEl.innerHTML = "⚫ Unknown";
+        }
+    }
 }
 
 function resetOfflineTimer() {
-    hasSeenAnyUpdate = true;
     updateConnectionStatus(true);
 
     clearTimeout(offlineTimer);
@@ -61,7 +68,10 @@ onValue(root, (snapshot) => {
         if (mobileEl) mobileEl.innerHTML = data.mobile;
     }
 
-    if (data.screen !== undefined) {
+    const statusEl = document.getElementById("connectionStatus");
+    const isConnected = !!statusEl && statusEl.textContent.includes("Connected");
+
+    if (data.screen !== undefined && isConnected) {
         const screenEl = document.getElementById("screen");
         if (screenEl) {
             const screenIsOn =
@@ -115,11 +125,3 @@ if (locationCard) {
         );
     });
 }
-
-// If nothing arrives after load, show offline after the timeout
-clearTimeout(offlineTimer);
-offlineTimer = setTimeout(() => {
-    if (!hasSeenAnyUpdate) {
-        updateConnectionStatus(false);
-    }
-}, 60000);
