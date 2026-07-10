@@ -52,7 +52,7 @@
       { "title": "⏹️ Stop Video Rec", "command": "recvidstp", "color": "#546E7A" },
       { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" },
       { "title": "📺 Start Stream", "command": "streamon", "color": "#795548" },
-      { "title": "⏹️ Stop Stream", "command": "streamoff", "color": "#F44336" }
+      { "title": "⏹️ Stop Stream", "command": "streamoff", "color": "#F44336" },
       { "title": "📁 Last File", "command": "lastfile", "color": "#5E35B1" }
     ]
   }
