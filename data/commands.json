@@ -5,14 +5,14 @@
       { "title": "🏠 Home", "command": "home", "color": "#2196F3" },
       { "title": "◀ Back", "command": "back", "color": "#4CAF50" },
       { "title": "📋 Recent", "command": "recent", "color": "#FF9800" }
-      { "title": "📁 File Manager", "command": "files", "color": "#607D8B" }
     ]
   },
   {
     "category": "Screen",
     "items": [
       { "title": "🔒 Lock", "command": "lock", "color": "#F44336" },
-      { "title": "🔓 Unlock", "command": "wake", "color": "#03A9F4" },
+      { "title": "🔓 Wake", "command": "wake", "color": "#03A9F4" },
+      { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" },
       { "title": "🌙 Dim Screen ON", "command": "dimon", "color": "#5C6BC0" },
       { "title": "☀️ Brightness 100%", "command": "bright", "color": "#FFC107" },
       { "title": "☀️ Dim Screen OFF", "command": "dimof", "color": "#FFA726" },
@@ -53,7 +53,8 @@
       { "title": "📸 Screenshot", "command": "screenshot", "color": "#3F51B5" },
       { "title": "📺 Start Stream", "command": "streamon", "color": "#795548" },
       { "title": "⏹️ Stop Stream", "command": "streamoff", "color": "#F44336" },
-      { "title": "📁 Last File", "command": "lastfile", "color": "#5E35B1" }
+      { "title": "📁 Last File", "command": "lastfile", "color": "#5E35B1" },
+      { "title": "📁 File Manager", "command": "files", "color": "#607D8B" }
     ]
   }
 ]
