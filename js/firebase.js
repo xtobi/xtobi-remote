@@ -2,8 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/fireba
 import {
     getDatabase,
     ref,
-    onValue,
-    off
+    onValue
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -58,15 +57,14 @@ onValue(streamUrlRef, (snapshot) => {
     if (typeof url !== "string") return;
 
     const cleanUrl = url.trim();
-
     if (!cleanUrl || !cleanUrl.startsWith("http")) return;
 
-    // Avoid reopening the same stream URL repeatedly
+    if (!window.xtobiWaitingForStream) return;
     if (cleanUrl === lastOpenedStreamUrl) return;
 
     lastOpenedStreamUrl = cleanUrl;
+    window.xtobiWaitingForStream = false;
 
-    // Open stream automatically
     window.open(cleanUrl, "_blank", "noopener,noreferrer");
 });
 
