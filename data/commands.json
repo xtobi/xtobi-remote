@@ -15,7 +15,7 @@
     "category": "Screen",
     "items": [
       { "title": "🔒 Lock", "command": "lock", "color": "#F44336" },
-      { "title": "🔓 Wake", "command": "wake", "color": "#03A9F4" },
+      { "title": "🔓 Unlock", "command": "wake", "color": "#03A9F4" },
       { "title": "📴 Screen Off", "command": "screen_off", "color": "#607D8B" },
       { "title": "🌙 Dim Screen ON", "command": "dimon", "color": "#5C6BC0" },
       { "title": "☀️ Brightness 100%", "command": "bright", "color": "#FFC107" },
