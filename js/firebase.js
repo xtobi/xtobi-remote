@@ -63,25 +63,22 @@ onValue(root, (snapshot) => {
         if (batteryEl) batteryEl.innerHTML = data.battery + "%";
     }
 
-    if (data.mobile !== undefined) {
-        const mobileEl = document.getElementById("mobile");
-        if (mobileEl) mobileEl.innerHTML = data.mobile;
-    }
+    if (data.screen !== undefined) {
+        const statusEl = document.getElementById("connectionStatus");
+        const isConnected = !!statusEl && statusEl.textContent.includes("Connected");
 
-    const statusEl = document.getElementById("connectionStatus");
-    const isConnected = !!statusEl && statusEl.textContent.includes("Connected");
+        if (isConnected) {
+            const screenEl = document.getElementById("screen");
+            if (screenEl) {
+                const screenIsOn =
+                    data.screen === "ON" ||
+                    data.screen === true ||
+                    data.screen === 1;
 
-    if (data.screen !== undefined && isConnected) {
-        const screenEl = document.getElementById("screen");
-        if (screenEl) {
-            const screenIsOn =
-                data.screen === "ON" ||
-                data.screen === true ||
-                data.screen === 1;
-
-            screenEl.innerHTML = screenIsOn
-                ? "🟢 Screen Awake"
-                : "⚫ Screen Sleeping";
+                screenEl.innerHTML = screenIsOn
+                    ? "🟢 Screen Awake"
+                    : "⚫ Screen Sleeping";
+            }
         }
     }
 
