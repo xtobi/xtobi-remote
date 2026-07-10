@@ -104,17 +104,27 @@ async function send(command) {
         addHistory(command);
         toast("✓ " + command);
 
-     if (command === "streamon") {
+     if (command === "if (command === "streamon") {
+
+    let seconds = 26;
 
     document.getElementById("status").innerHTML =
-        "📺 Starting Stream...";
+        `📺 Starting Stream... (${seconds}s)`;
 
     toast("Starting ScreenStream...");
 
-    setTimeout(async () => {
+    const countdown = setInterval(() => {
+        seconds--;
 
-        document.getElementById("status").innerHTML =
-            "⏳ Waiting for Stream URL...";
+        if (seconds > 0) {
+            document.getElementById("status").innerHTML =
+                `⏳ Opening Stream in ${seconds}s`;
+        } else {
+            clearInterval(countdown);
+        }
+    }, 1000);
+
+    setTimeout(async () => {
 
         try {
 
