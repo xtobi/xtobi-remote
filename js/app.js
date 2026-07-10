@@ -121,7 +121,7 @@ async function send(command) {
                     toast("Failed to read stream URL");
                     document.getElementById("status").innerHTML = "🔴 Stream Error";
                 }
-            }, 23000);
+            }, 26000);
         }
     } catch (e) {
         console.error(e);
