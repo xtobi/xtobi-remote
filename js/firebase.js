@@ -21,14 +21,35 @@ const db = getDatabase(app);
 let lastLat = null;
 let lastLon = null;
 let lastOpenedStreamUrl = null;
+let offlineTimer = null;
+let hasSeenAnyUpdate = false;
 
 const root = ref(db);
 const streamUrlRef = ref(db, "stream_url");
+
+function updateConnectionStatus(connected) {
+    const statusEl = document.getElementById("connectionStatus");
+    if (!statusEl) return;
+
+    statusEl.innerHTML = connected ? "🟢 Connected" : "🔴 Offline";
+}
+
+function resetOfflineTimer() {
+    hasSeenAnyUpdate = true;
+    updateConnectionStatus(true);
+
+    clearTimeout(offlineTimer);
+    offlineTimer = setTimeout(() => {
+        updateConnectionStatus(false);
+    }, 60000);
+}
 
 onValue(root, (snapshot) => {
     const data = snapshot.val();
 
     if (!data) return;
+
+    resetOfflineTimer();
 
     if (data.battery !== undefined) {
         const batteryEl = document.getElementById("battery");
@@ -94,3 +115,11 @@ if (locationCard) {
         );
     });
 }
+
+// If nothing arrives after load, show offline after the timeout
+clearTimeout(offlineTimer);
+offlineTimer = setTimeout(() => {
+    if (!hasSeenAnyUpdate) {
+        updateConnectionStatus(false);
+    }
+}, 60000);
