@@ -40,6 +40,20 @@ onValue(root, (snapshot) => {
         if (mobileEl) mobileEl.innerHTML = data.mobile;
     }
 
+    if (data.screen !== undefined) {
+        const screenEl = document.getElementById("screen");
+        if (screenEl) {
+            const screenIsOn =
+                data.screen === "ON" ||
+                data.screen === true ||
+                data.screen === 1;
+
+            screenEl.innerHTML = screenIsOn
+                ? "🟢 Screen Awake"
+                : "⚫ Screen Sleeping";
+        }
+    }
+
     if (data.location) {
         lastLat = data.location.lat;
         lastLon = data.location.lon;
