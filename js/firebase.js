@@ -2,7 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/fireba
 import {
     getDatabase,
     ref,
-    onValue
+    onValue,
+    off
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -20,41 +21,64 @@ const db = getDatabase(app);
 
 let lastLat = null;
 let lastLon = null;
+let lastOpenedStreamUrl = null;
 
 const root = ref(db);
+const streamUrlRef = ref(db, "stream_url");
 
 onValue(root, (snapshot) => {
-
     const data = snapshot.val();
 
     if (!data) return;
 
     if (data.battery !== undefined) {
-        document.getElementById("battery").innerHTML = data.battery + "%";
+        const batteryEl = document.getElementById("battery");
+        if (batteryEl) batteryEl.innerHTML = data.battery + "%";
     }
 
     if (data.mobile !== undefined) {
-        document.getElementById("mobile").innerHTML = data.mobile;
+        const mobileEl = document.getElementById("mobile");
+        if (mobileEl) mobileEl.innerHTML = data.mobile;
     }
 
     if (data.location) {
-
         lastLat = data.location.lat;
         lastLon = data.location.lon;
 
-        document.getElementById("location").innerHTML =
-            "📍 Open in Google Maps";
+        const locationEl = document.getElementById("location");
+        if (locationEl) {
+            locationEl.innerHTML = "📍 Open in Google Maps";
+        }
     }
-
 });
 
-document.getElementById("locationCard").addEventListener("click", () => {
+onValue(streamUrlRef, (snapshot) => {
+    const url = snapshot.val();
 
-    if (!lastLat || !lastLon) return;
+    if (typeof url !== "string") return;
 
-    window.open(
-        `https://www.google.com/maps?q=${lastLat},${lastLon}`,
-        "_blank"
-    );
+    const cleanUrl = url.trim();
 
+    if (!cleanUrl || !cleanUrl.startsWith("http")) return;
+
+    // Avoid reopening the same stream URL repeatedly
+    if (cleanUrl === lastOpenedStreamUrl) return;
+
+    lastOpenedStreamUrl = cleanUrl;
+
+    // Open stream automatically
+    window.open(cleanUrl, "_blank", "noopener,noreferrer");
 });
+
+const locationCard = document.getElementById("locationCard");
+if (locationCard) {
+    locationCard.addEventListener("click", () => {
+        if (lastLat === null || lastLon === null) return;
+
+        window.open(
+            `https://www.google.com/maps?q=${lastLat},${lastLon}`,
+            "_blank",
+            "noopener,noreferrer"
+        );
+    });
+}
