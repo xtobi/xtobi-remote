@@ -6,7 +6,9 @@
       { "title": "◀ Back", "command": "back", "color": "#4CAF50" },
       { "title": "📋 Recent", "command": "recent", "color": "#FF9800" },
       { "title": "📁 File Manager", "command": "files", "color": "#607D8B" },
-      { "title": "🌐 Droid2Web", "command": "droid2web", "color": "#00ACC1" }
+      { "title": "🌐 Droid2Web", "command": "droid2web", "color": "#00ACC1" },
+      { "title": "🛑 Stop Droid2Web", "command": "droid2webof", "color": "#F44336" }
+
       
 
     ]
